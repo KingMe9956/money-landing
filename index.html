@@ -1,1 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Get Your AI Landing Page That Actually Sells</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050816;
+      color: #f9fafb;
+      line-height: 1.5;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    header .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    header .badge {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #22c55e33;
+      color: #bbf7d0;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #a5b4fc;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 14px;
+    }
+    .subhead {
+      font-size: 0.98rem;
+      color: #e5e7eb;
+      margin-bottom: 18px;
+    }
+    .highlight {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .proof-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 24px;
+    }
+    .proof-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      background: radial-gradient(circle at top left, #22c55e22, #020617);
+    }
+    .card {
+      background: radial-gradient(circle at top left, #22c55e15, #020617);
+      border-radius: 16px;
+      padding: 20px 18px 22px;
+      border: 1px solid #4b5563;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.8);
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .price-main {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .price-tagline {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    .card ul {
+      list-style: none;
+      margin: 12px 0 16px;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+    .card ul li {
+      margin-bottom: 6px;
+      display: flex;
+      gap: 6px;
+    }
+    .card ul li::before {
+      content: "✔";
+      color: #4ade80;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    label {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      background: #020617;
+      color: #f9fafb;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    input[type="email"]:focus {
+      border-color: #4ade80;
+      box-shadow: 0 0 0 1px #4ade8055;
+    }
+    .cta-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 4px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+      color: #022c22;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.05s ease-out, box-shadow 0.05s ease-out, filter 0.05s ease-out;
+      box-shadow: 0 14px 35px rgba(34,197,94,0.45);
+    }
+    .cta-main:hover {
+      filter: brightness(1.03);
+      transform: translateY(-1px);
+      box-shadow: 0 20px 45px rgba(34,197,94,0.55);
+    }
+    .cta-main span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .cta-note {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+    .hero-right {
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      border: 1px solid #1f2937;
+      background: radial-gradient(circle at top, #4b556333, #020617);
+      font-size: 0.86rem;
+      color: #e5e7eb;
+    }
+    .hero-right h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .hero-right p {
+      margin-bottom: 8px;
+    }
+    .hero-right strong {
+      color: #4ade80;
+    }
+    .hero-right-footer {
+      margin-top: 4px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+    .trust {
+      margin-top: 36px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .trust span {
+      opacity: 0.9;
+    }
+    .bullet-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .bullet-row div {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px dashed #374151;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">X-LANDING</div>
+      <div class="badge">Built to turn traffic into cash</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">You don’t need another project</div>
+        <h1>Turn <span class="highlight">any traffic</span> into payments in under 10 minutes.</h1>
+        <p class="subhead">
+          Paste this page, plug in your checkout link, and start collecting payments or emails today.
+          No extra features, no “coming soon” roadmap, just a funnel that moves people to pay.
+        </p>
+
+        <div class="proof-row">
+          <div class="proof-pill">Single offer, one CTA</div>
+          <div class="proof-pill">Above‑the‑fold form</div>
+          <div class="proof-pill">Optimized for mobile first</div>
+        </div>
+
+        <div class="card">
+          <h2>Your “X” goes here</h2>
+          <div class="price-row">
+            <div class="price-main">$29</div>
+            <div class="price-tagline">One simple offer (change this)</div>
+          </div>
+          <ul>
+            <li>Clear promise in one line, focused on money or time saved.</li>
+            <li>Short bullets that answer “What do I get today?”</li>
+            <li>No account needed for visitors beyond email + payment.</li>
+          </ul>
+
+          <!-- FORM: replace action with your form handler or email tool -->
+          <form method="POST" action="/api/lead">
+            <label for="email">Enter your best email to get the page + checkout link:</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            <button class="cta-main" type="submit">
+              <span>Get the money page</span>
+            </button>
+          </form>
+          <div class="cta-note">
+            After this, you go straight to the payment page. No bullshit, no upsell maze.
+          </div>
+
+          <!-- DIRECT CHECKOUT BUTTON: replace href with Stripe/Gumroad/PayPal/etc -->
+          <div style="margin-top: 12px;">
+            <a class="cta-main" href="https://your-checkout-link-here.com" target="_blank" rel="noopener">
+              Pay now & skip the inbox →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <h3>How this page makes you money</h3>
+        <p>
+          1. You send any traffic here (Twitter, Discord, old repos, QR code, whatever).<br />
+          2. Visitors either drop an email or go straight to <strong>checkout</strong>.<br />
+          3. You follow up only with people who already raised their hand.
+        </p>
+        <p>
+          No blog, no navigation, no “About” rabbit holes. Just one screen that says:
+          “Here’s the offer, here’s the price, here’s how to pay.”
+        </p>
+        <div class="hero-right-footer">
+          Swap the copy for your niche (NFTs, agents, smart‑contract help, whatever) but keep the structure the same.
+        </div>
+      </aside>
+    </section>
+
+    <section class="trust">
+      <span>Built around what actually shows up in high‑converting landing pages: one core promise, social proof, and a single action above the fold.</span>
+      <div class="bullet-row">
+        <div>No external links</div>
+        <div>No feature dump</div>
+        <div>Just offer → form → pay</div>
+      </div>
+    </section>
+  </div>
+</body>
 
